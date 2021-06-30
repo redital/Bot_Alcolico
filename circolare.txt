@@ -1,0 +1,17 @@
+Il bot è appena stato aggiornato! 
+Come al solito ti invito a testarlo e a farmi sapere eventuali feedback (sia positivi che sopratutto negativi) preferibilmente tramite il comando /feedback o anche in privato ad @AculeoCrepuscolare.
+
+Da un po' è stato aggiunto il pulsante "Pesca" per evitare quanto più possibile al giocatore di scrivere, inoltre da adesso gli ordini non li riceverete più sotto forma di testo ma di immagine!
+
+Il design delle carte è provvisorio, a tal proposito, si accettano proposte e consigli anche riguardo a questo.
+
+La lista di possibili ordini (o carte se preferite visto che sta prendendo quella forma) è stata ampliata! Adesso ne sono 57, sembrano tante se pensiamo che siamo partiti con 6, ma sono comunque poche, troppo poche per una vera partita in compagnia, ti chiedo quindi di consigliarmene altre.
+
+Altri fix minori, o meglio scrivo così perchè sono cose di back-end che voi non potete vedere ma vi assicuro che sono quelle che mi fanno smadonnare di più e che permettono al bot di non rompersi in continuazione
+
+Ah! Dimenticavo, cioè non è che dimenticavo, me ne sono accorto proprio all'ultimo. Nelle carte non compaiono le lettere accentate. Non è propriamente un errore del bot è che semplicemente il font che utilizza non le supporta, quindi non preoccuparti, quando rifarò il design delle carte lo cambierò.
+
+Ti ringrazio del supporto e di eventuali feedback! 
+A presto!
+
+P.S. Per un test più realistico consiglio di svuotare la chat! Per fare ciò premi sui 3 puntini in alto a sinistra e seleziona "Cancella cronologia"
