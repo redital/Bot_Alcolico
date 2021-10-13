@@ -1,3 +1,4 @@
+# -*- coding: iso-8859-15 -*-
 from telebot import types
 import telebot
 from random import randint
@@ -36,18 +37,18 @@ Ciao! Siete pronti a sbronzarvi?\nDigita (o premi su) /new_game per iniziare una
 Ricordati che in ogni momento puoi digitare (o premere su) /help per conoscere la lista dei comandi e cosa fanno.
 Se ti va, lascia un feedback! Digita /feedback seguito dal tuo messaggio per farci sapere cosa ne pensi del bot, segnalare problemi, dare dei consigli su come migliorarlo, suggerire nuovi ordini etc.
 
-N.B. Questo bot √® hostato su un server gratuito, pu√≤ capitare che venga staccato per dare priorit√† a chi paga. Se usando questo bot dovessi vedere che non risponde, contatta @AculeoCrepuscolare
-""" , reply_markup=markup )
+N.B. Questo bot Ë hostato su un server gratuito, puÚ capitare che venga staccato per dare priorit‡ ad altro. Se usando questo bot dovessi vedere che non risponde, contatta @AculeoCrepuscolare
+""" , markup)
 
 @bot.message_handler(commands=['help'])
 def help(message):
     markup=types.ReplyKeyboardRemove()
     bot.send_message( message.chat.id,
 """\
-Il gioco √® semplice, lo capirai subito (se non sei gi√† troppo sbronzo/a).
+Il gioco Ë semplice, lo capirai subito (se non sei gi‡† troppo sbronzo/a).
 Digita (o premi su) /new_game per iniziare una nuova partita.
-Si gioca a turni, al proprio turno il giocatore prende il telefono con cui si sta giocando e digiter√†(o premer√†) /pesca.
-Io dar√≤ un ordine e star√† a lui/lei decidere se eseguirlo o bere.
+Si gioca a turni, al proprio turno il giocatore prende il telefono con cui si sta giocando e digiter‡†(o premer‡†) /pesca.
+Io darÚ un ordine e star‡† a lui/lei decidere se eseguirlo o bere.
 Quando avrete finito digitate (o premete) /kill_game.
 Se volete lasciarmi qualche feedback digitate (o tenete premuto) /feedback e scrivete quello che volete dirmi.
 
@@ -56,8 +57,8 @@ Riassumendo i comandi:
 /help\t\t\t- spiega a cosa serve il bot e mostra la lista dei comandi
 /new_game\t\t- inizia una nuova partita
 /kill_game\t\t- chiude la partita in corso
-/pesca\t\t\t- se una partita √® in corso mostra l'ordine che deve eseguire il giocatore corrente
-/feedback\t\t- scrivi un messaggio dopo aver digitato questo comando (es: /feedback ci sono pochi ordini) e verr√† recapitato al creator
+/pesca\t\t\t- se una partita Ë in corso mostra l'ordine che deve eseguire il giocatore corrente
+/feedback\t\t- scrivi un messaggio dopo aver digitato questo comando (es: /feedback ci sono pochi ordini) e verr‡† recapitato al creator
 
 """, reply_markup=markup )
 
@@ -83,11 +84,11 @@ def callback_query(call):
             body = body + ', {id}'.format(id=call.message.json["chat"]["id"])
         #print(MESSAGGIO)
 
-        
+
         try:
             pesca(MESSAGGIO[body])
         except:
-            bot.send_message(call.message.chat.id, "Oh, ti ho detto che la partita √® finita!\nSe vuoi iniziarne un'altra digita (o premi) /new_game" , reply_markup=types.ReplyKeyboardRemove())
+           bot.send_message(call.message.chat.id, "Oh, ti ho detto che la partita ‡ finita!\nSe vuoi iniziarne un'altra digita (o premi) /new_game" , reply_markup=types.ReplyKeyboardRemove())
 
 
 
@@ -100,15 +101,17 @@ def new_game(message):
     global MESSAGGIO
     MESSAGGIO[formattazione(message, username=True)]=message
 
-    lista_ordini=open("base_di_dati_ordini.txt","r").readlines()#.encode("ascii", "replace")
+    lista_ordini=open("base_di_dati_ordini.txt","r",errors='ignore',encoding='utf8').readlines()
     file=open("ordini" + formattazione(message,username=True) + ".txt","w")
     for i in lista_ordini:
         file.write(i)
     file.close
 
+
     partite=[]
-    for i in open("partite.txt","r").readlines():
+    for i in open("partite.txt","r",encoding='utf8').readlines():
         partite.append(i.split(" ")[0] + " \t" + i.split("\t")[-1])
+        
 
     file=open("partite.txt","a")
     body=formattazione(message,username=True,data=True)
@@ -121,14 +124,14 @@ def new_game(message):
         bot.send_message ( message.chat.id,
 """\
 Ok, iniziamo!
-Decidete un ordine, a turno ogni giocatore ricever√† il telefono e pescher√† una carta premendo sul pulsante "Pesca" oppure pu√≤ digitare(o premere) /pesca.
-Sulla carta star√† scritto cosa fare ma sar√† lui/lei a decidere se farlo o bere.
+Decidete un ordine, a turno ogni giocatore ricever‡† il telefono e pescher‡† una carta premendo sul pulsante "Pesca" oppure puÚ digitare(o premere) /pesca.
+Sulla carta star‡† scritto cosa fare ma sar‡† lui/lei a decidere se farlo o bere.
 Quando avrete finito digitate (o premete) /kill_game
 """ , reply_markup=gen_markup(message))
 
     else:
         file.close()
-        bot.send_message(message.chat.id, "Sei ubriaco/a ancor prima di cominciare? Sveglia! Vedi che la partita √® gi√† in corso!" , reply_markup=markup)
+        bot.send_message(message.chat.id, "Sei ubriaco/a ancor prima di cominciare? Sveglia! Vedi che la partita Ë gi‡† in corso!" , reply_markup=markup)
 
 @bot.message_handler(commands=['pesca'])
 def pesca(message):
@@ -192,9 +195,9 @@ def kill_game(message):
     file.close()
 
     if(trovato):
-        bot.send_message(message.chat.id, "Ok, effettivamente mi sembrate gi√† piuttosto sbronzi, chiudiamola qui... Tornatevene a casa che fate schifo!" , reply_markup=markup)
+        bot.send_message(message.chat.id, "Ok, effettivamente mi sembrate gi‡† piuttosto sbronzi, chiudiamola qui... Tornatevene a casa che fate schifo!" , reply_markup=markup)
     else:
-        bot.send_message(message.chat.id, "Sei ubriaco/a ancor prima di cominciare? Sveglia! Vedi che non c'√® nessuna partita in corso!" , reply_markup=markup)
+        bot.send_message(message.chat.id, "Sei ubriaco/a ancor prima di cominciare? Sveglia! Vedi che non c'Ë nessuna partita in corso!" , reply_markup=markup)
 
 
 @bot.message_handler(commands=['feedback'])
@@ -220,8 +223,8 @@ def echo_message(message):
                                      last=message.from_user.last_name, username=message.from_user.username,
                                      id=message.chat.id)
 
-    bot.reply_to(message, "Oh ma sei gi√† sbronzo/a? Sono un bot, che ne so che significa" , reply_markup=markup)
+    bot.reply_to(message, "Oh ma sei gi‡† sbronzo/a? Sono un bot, che ne so che significa" , reply_markup=markup)
 
 
-bot.polling()
-#bot.polling(none_stop=True)
+#bot.polling()
+bot.polling(none_stop=True)
