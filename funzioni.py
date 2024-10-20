@@ -1,10 +1,11 @@
 # -*- coding: iso-8859-15 -*-
-from PIL import Image, ImageFont, ImageDraw
 from telebot import types
 import telebot
+
+from PIL import Image, ImageFont, ImageDraw
 from datetime import datetime
 
-API_TOKEN = token
+from cose_segrete import API_TOKEN
 
 bot = telebot.TeleBot(API_TOKEN)
 
