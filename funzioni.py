@@ -5,7 +5,7 @@ import telebot
 from PIL import Image, ImageFont, ImageDraw
 from datetime import datetime
 
-from cose_segrete import API_TOKEN
+from config import API_TOKEN
 
 bot = telebot.TeleBot(API_TOKEN)
 
