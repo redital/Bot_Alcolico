@@ -4,6 +4,7 @@ import telebot
 
 from PIL import Image, ImageFont, ImageDraw
 from datetime import datetime
+import os
 
 from config import API_TOKEN, AGGIORNAMENTO
 
@@ -56,6 +57,10 @@ def formattazione(message, **opzioni):
 
 def chiudi_partite():
     partite=[]
+    if not os.path.isfile("partite.txt"):
+        open("partite.txt","w")
+    if not os.path.isfile("info_user.txt"):
+        open("info_user.txt","w")
     for i in open("partite.txt","r").readlines():
         if (i.split(" \t")[-1]== "partita in corso\n"):
             for j in open("info_user.txt","r").readlines():
