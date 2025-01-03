@@ -5,11 +5,9 @@ import telebot
 from PIL import Image, ImageFont, ImageDraw
 from datetime import datetime
 
-from config import API_TOKEN
+from config import API_TOKEN, AGGIORNAMENTO
 
 bot = telebot.TeleBot(API_TOKEN)
-
-AGGIORNAMENTO=False
 
 
 
