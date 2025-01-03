@@ -7,7 +7,7 @@ from io import BytesIO
 from time import sleep
 
 from funzioni import*
-from cose_segrete import API_TOKEN
+from config import API_TOKEN
 
 
 

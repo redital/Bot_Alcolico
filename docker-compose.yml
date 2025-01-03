@@ -1,0 +1,10 @@
+services:
+  sbronzobot:
+    container_name: sbronzobot
+    build: .
+    environment:
+      - SERVICE_PORT=${SERVICE_PORT:-5000}
+      - API_TOKEN=${API_TOKEN:-placeholder}
+    ports:
+      - "8080:${SERVICE_PORT}"
+    pull_policy: build
