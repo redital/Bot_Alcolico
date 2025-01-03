@@ -101,6 +101,8 @@ def new_game(message):
     MESSAGGIO[formattazione(message, username=True)]=message
 
     lista_ordini=open("base_di_dati_ordini.txt","r",errors='ignore',encoding='utf8').readlines()
+    if not os.path.isdir(PATH_FILE_ORDINI):
+        os.mkdir(PATH_FILE_ORDINI)
     file=open(PATH_FILE_ORDINI + "ordini" + formattazione(message,username=True) + ".txt","w")
     for i in lista_ordini:
         file.write(i)
